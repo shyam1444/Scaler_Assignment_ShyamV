@@ -4,6 +4,18 @@ This repository contains the source code and configuration details for **Shyam's
 
 ---
 
+## 🚀 Live Demo & Telephony Testing
+
+You can interact with Shyam's AI Representative immediately using any of the public access channels:
+
+*   📞 **Voice Dial-In**: Call **`+1 (239) 663-4873`** (Direct US dial-in from any mobile network).
+*   💬 **Web Chat & Calendar Scheduler**: Access the live glassmorphic client interface at [https://renaissance-taken-vendor-rochester.trycloudflare.com](https://renaissance-taken-vendor-rochester.trycloudflare.com).
+*   🌐 **Interactive RAG Telemetry**: The web page features a real-time console showing source matches, token counts, and retrieval latencies as you chat.
+
+*Note: Since the backend is running via a Cloudflare Tunnel for grading purposes, the web client and voice hooks route directly to the active Express server on port 4000.*
+
+---
+
 ## 🏗️ System Architecture
 
 The project is built on a consolidated TypeScript/Node.js stack that handles PDF extraction, repository crawling, vector searching, backend APIs, and serves a premium glassmorphic chat interface.
@@ -85,8 +97,8 @@ The project is built on a consolidated TypeScript/Node.js stack that handles PDF
 
 ### 1. Clone & Install Dependencies
 ```bash
-git clone https://github.com/shyam1444/Scaler_assignment.git
-cd Scaler_assignment
+git clone https://github.com/shyam1444/Scaler_Assignment_ShyamV.git
+cd Scaler_Assignment_ShyamV
 npm install
 ```
 
