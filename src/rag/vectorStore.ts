@@ -146,9 +146,12 @@ export class VectorStore {
       const debugInfo: any[] = [];
 
       for (const res of results) {
-        contextChunks.push(`[Source: ${res.chunk.source}] (Similarity: ${res.score.toFixed(3)})\n${res.chunk.text}`);
-        if (!sources.includes(res.chunk.source)) {
-          sources.push(res.chunk.source);
+        // Only include chunks with a similarity score of 0.05 or higher
+        if (res.score >= 0.05) {
+          contextChunks.push(`[Source: ${res.chunk.source}] (Similarity: ${res.score.toFixed(3)})\n${res.chunk.text}`);
+          if (!sources.includes(res.chunk.source)) {
+            sources.push(res.chunk.source);
+          }
         }
         debugInfo.push({
           source: res.chunk.source,
@@ -158,7 +161,7 @@ export class VectorStore {
       }
 
       return {
-        contextText: contextChunks.join('\n\n---\n\n'),
+        contextText: contextChunks.length > 0 ? contextChunks.join('\n\n---\n\n') : 'No matching records found in the database.',
         sources,
         debug: debugInfo
       };
