@@ -90,25 +90,39 @@ export class VectorStore {
 
   private detectRepoFilter(query: string): string | null {
     const q = query.toLowerCase();
+    
+    // 1. Specific GitHub repository checks (Precedence)
     if (q.includes('edubot')) return 'GitHub_EduBot';
-    if (q.includes('predictive') || q.includes('automotive') || q.includes('maintenance') || q.includes('telemetry')) {
+    if (q.includes('predictive') || q.includes('automotive') || q.includes('maintenance') || q.includes('telemetry') || q.includes('anomaly') || q.includes('sensor') || q.includes('vehicle') || q.includes('car') || q.includes('vibration') || q.includes('battery')) {
       return 'GitHub_Automotive-Agentic-Vehicle-Predictive-Maintenance-System';
     }
-    if (q.includes('track-flow') || q.includes('crm') || q.includes('track flow')) {
+    if (q.includes('track-flow') || q.includes('crm') || q.includes('track flow') || q.includes('lead') || q.includes('sales')) {
       return 'GitHub_Track-Flow-CRM';
     }
-    if (q.includes('guidelines') || q.includes('analyzer') || q.includes('correction')) {
+    if (q.includes('guidelines') || q.includes('analyzer') || q.includes('correction') || q.includes('reviewer') || q.includes('ast') || q.includes('refactor')) {
       return 'GitHub_AI-Code-Guidelines-Analyzer-Correction-System';
     }
-    if (q.includes('allohealth')) {
+    if (q.includes('allohealth') || q.includes('medical') || q.includes('doctor') || q.includes('prescription')) {
       return 'GitHub_AlloHealth_22MIS1031';
     }
-    if (q.includes('logger') || q.includes('chrome-extension') || q.includes('sheet')) {
+    if (q.includes('logger') || q.includes('chrome-extension') || q.includes('sheet') || q.includes('extension')) {
       return 'GitHub_Web-to-Sheet-Logger-Chrome-Extension';
     }
-    if (q.includes('resume') || q.includes('vit') || q.includes('education') || q.includes('gpa') || q.includes('grades') || q.includes('academic')) {
+    
+    // 2. Resume-specific checks (Grounding general background inquiries to Resume source)
+    const resumeKeywords = [
+      'resume', 'cv', 'profile', 'background', 'intern', 'experience', 'work', 'job',
+      'education', 'college', 'university', 'vit', 'cgpa', 'gpa', 'grades', 'academic',
+      'skills', 'languages', 'databases', 'stack', 'publications', 'paper', 'patent',
+      'leadership', 'achievements', 'amd', 'seds', 'contact', 'email', 'phone', 'location',
+      'bengaluru', 'bangalore', 'chennai', 'tell me about yourself', 'who are you', 'introduce yourself',
+      'project', 'projects', 'spiritual', 'journey', 'recommendation', 'yoga', 'pose'
+    ];
+    
+    if (resumeKeywords.some(keyword => q.includes(keyword))) {
       return 'Resume';
     }
+    
     return null;
   }
 
@@ -138,8 +152,7 @@ export class VectorStore {
   public async retrieveContext(openai: OpenAI, query: string, topK: number = 5): Promise<{ contextText: string; sources: string[]; debug: any[] }> {
     try {
       const queryEmbedding = await this.getQueryEmbedding(openai, query);
-      const filterSource = this.detectRepoFilter(query);
-      const results = this.search(queryEmbedding, topK, filterSource);
+      const results = this.search(queryEmbedding, topK, null);
 
       const contextChunks: string[] = [];
       const sources: string[] = [];
