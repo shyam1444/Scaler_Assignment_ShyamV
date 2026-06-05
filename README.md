@@ -120,10 +120,3 @@ Run the automated test suite to verify the scheduling engine's reservation valid
 ```bash
 npm test
 ```
-
-### Compile PDF Report
-Generate the required 1-page PDF evaluation summary detailing latency profiles, system limitations, and failure recovery modes:
-```bash
-npm run generate-report
-```
-*Outputs `evaluation_report.pdf` in your project root.*
