@@ -72,7 +72,11 @@ export class VectorStore {
     return vec;
   }
 
-  public async getQueryEmbedding(openai: OpenAI, query: string): Promise<number[]> {
+  public async getQueryEmbedding(openai: OpenAI | null, query: string): Promise<number[]> {
+    if (!openai) {
+      console.warn("[Warning] OpenAI client is null. Falling back to local bag-of-words query embedding.");
+      return this.generateMockEmbedding(query);
+    }
     try {
       const response = await openai.embeddings.create({
         model: "text-embedding-3-small",
@@ -149,7 +153,7 @@ export class VectorStore {
     return scored.slice(0, topK);
   }
 
-  public async retrieveContext(openai: OpenAI, query: string, topK: number = 5): Promise<{ contextText: string; sources: string[]; debug: any[] }> {
+  public async retrieveContext(openai: OpenAI | null, query: string, topK: number = 5): Promise<{ contextText: string; sources: string[]; debug: any[] }> {
     try {
       const queryEmbedding = await this.getQueryEmbedding(openai, query);
       const results = this.search(queryEmbedding, topK, null);
