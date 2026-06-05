@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shyam Venkatraman - AI Representative & Scheduler</title>
+  <!-- Google Fonts: Outfit (headings) and Inter (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet">
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Ambient background glow elements -->
+  <div class="bg-glow-1"></div>
+  <div class="bg-glow-2"></div>
+
+  <div class="app-container">
+    <!-- Header -->
+    <header class="main-header glass-card">
+      <div class="logo-area">
+        <div class="logo-glow"></div>
+        <i class="fa-solid fa-microchip logo-icon"></i>
+        <h1>Shyam.<span>AI</span></h1>
+      </div>
+      <div class="status-indicator">
+        <span class="pulse-dot"></span>
+        <span class="status-text">AI Rep Online</span>
+      </div>
+    </header>
+
+    <!-- Main Workspace Layout -->
+    <main class="workspace-grid">
+      <!-- Left Panel: Profile Info and Interactive Calendar -->
+      <section class="left-panel">
+        <!-- Profile Card -->
+        <div class="profile-card glass-card">
+          <div class="profile-header">
+            <div class="avatar-container">
+              <svg viewBox="0 0 100 100" class="avatar-svg">
+                <defs>
+                  <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#00f2fe" />
+                    <stop offset="100%" stop-color="#9b51e0" />
+                  </linearGradient>
+                </defs>
+                <circle cx="50" cy="50" r="46" fill="none" stroke="url(#glowGrad)" stroke-width="2.5"
+                  class="rotating-ring"></circle>
+                <circle cx="50" cy="50" r="40" fill="#14192b"></circle>
+                <text x="50" y="58" font-family="'Outfit', sans-serif" font-size="28" font-weight="700" fill="#ffffff"
+                  text-anchor="middle">SV</text>
+              </svg>
+              <div class="online-badge"></div>
+            </div>
+            <div class="profile-titles">
+              <h2>Shyam Venkatraman</h2>
+              <p class="role-subtitle">AI & Software Engineer Representative</p>
+              <div class="location-tag">
+                <i class="fa-solid fa-location-dot"></i> Chennai, India
+              </div>
+            </div>
+          </div>
+          <p class="bio-text">
+            Specialist in high-speed RAG systems, agentic vehicle telemetry pipelines, and low-latency API
+            orchestrations. Pursuing M.Tech Integrated in Software Engineering at VIT Chennai.
+          </p>
+          <div class="social-links">
+            <a href="https://github.com/shyam1444" target="_blank" class="social-btn" title="GitHub"><i
+                class="fa-brands fa-github"></i></a>
+            <a href="https://linkedin.com/in/shyamv1444" target="_blank" class="social-btn" title="LinkedIn"><i
+                class="fa-brands fa-linkedin"></i></a>
+            <a href="mailto:shyamvenkatraman2@gmail.com" class="social-btn" title="Email"><i
+                class="fa-solid fa-envelope"></i></a>
+          </div>
+        </div>
+
+        <!-- Scheduling Card -->
+        <div class="calendar-card glass-card">
+          <div class="card-header">
+            <i class="fa-regular fa-calendar-days card-icon"></i>
+            <h3>Book an Interview</h3>
+          </div>
+
+          <div class="calendar-widget">
+            <div class="date-selector">
+              <label for="booking-date">Select Date:</label>
+              <div class="input-wrapper">
+                <input type="date" id="booking-date" min="2026-06-04">
+                <i class="fa-solid fa-chevron-down date-icon"></i>
+              </div>
+            </div>
+
+            <div class="slots-container">
+              <p class="slots-placeholder">Select a business day to check availability slots.</p>
+              <div class="slots-grid" id="slots-grid">
+                <!-- Dynamic Slot Buttons go here -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Panel: Conversation Hub and Debugger -->
+      <section class="right-panel">
+        <!-- Chat Console -->
+        <div class="chat-console glass-card">
+          <div class="chat-history" id="chat-history">
+            <!-- Initial Welcome Message -->
+            <div class="message assistant-message">
+              <div class="msg-avatar"><i class="fa-solid fa-robot"></i></div>
+              <div class="msg-content">
+                <p>Hello! I am Shyam's official AI representative. I am grounded directly on his resume credentials and
+                  his 23 public GitHub repositories.</p>
+                <p>You can ask me about his engineering background, search his repositories (like
+                  <strong>EduBot</strong> or his <strong>Predictive Maintenance System</strong>), check his
+                  availability, or schedule a formal interview. How can I help you today?
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Prompts Chips -->
+          <div class="quick-prompts">
+            <button class="prompt-chip" data-query="Why is Shyam the right fit for our engineering team?">
+              <i class="fa-solid fa-handshake-angle"></i> Why is he a fit?
+            </button>
+            <button class="prompt-chip"
+              data-query="Tell me about his project EduBot. What tech stack and tradeoffs were involved?">
+              <i class="fa-solid fa-brain"></i> EduBot Details
+            </button>
+            <button class="prompt-chip" data-query="Explain his Automotive Predictive Maintenance System.">
+              <i class="fa-solid fa-car-wrench"></i> Telemetry Agent
+            </button>
+            <button class="prompt-chip" data-query="What are Shyam's academic details?">
+              <i class="fa-solid fa-graduation-cap"></i> Academics
+            </button>
+          </div>
+
+          <!-- Chat Input -->
+          <div class="chat-input-area">
+            <input type="text" id="chat-input"
+              placeholder="Ask about Shyam's background, repos, or schedule a meeting..." autocomplete="off">
+            <button id="send-btn" class="send-btn">
+              <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Telemetry Panel -->
+        <div class="telemetry-panel glass-card">
+          <div class="telemetry-header" id="telemetry-toggle">
+            <div class="header-left">
+              <i class="fa-solid fa-terminal telemetry-icon"></i>
+              <h4>RAG Telemetry & Debug Console</h4>
+            </div>
+            <i class="fa-solid fa-chevron-up toggle-arrow"></i>
+          </div>
+          <div class="telemetry-content" id="telemetry-content">
+            <div class="stats-row">
+              <div class="stat-box">
+                <span class="stat-label">RAG Latency</span>
+                <span class="stat-value" id="stat-rag-latency">-- ms</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">LLM Latency</span>
+                <span class="stat-value" id="stat-llm-latency">-- ms</span>
+              </div>
+              <div class="stat-box">
+                <span class="stat-label">Tokens Matched</span>
+                <span class="stat-value" id="stat-chunks-count">0 chunks</span>
+              </div>
+            </div>
+            <div class="sources-list-container">
+              <h5>Retrieved Grounding Sources:</h5>
+              <ul class="sources-list" id="sources-list">
+                <li class="empty-source">No queries run yet. Start chatting to inspect RAG pipeline.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Glass Confirmation Modal for Calendar Booking -->
+  <div class="modal-overlay" id="booking-modal">
+    <div class="modal-card glass-card">
+      <div class="modal-header">
+        <h4>Schedule Interview Slot</h4>
+        <button class="close-modal-btn" id="close-modal"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <form id="booking-form" class="booking-form">
+        <p class="selected-time-label">Selected Slot: <strong id="modal-selected-time">--</strong></p>
+        <input type="hidden" id="booking-time-iso">
+
+        <div class="form-group">
+          <label for="booker-name">Your Full Name:</label>
+          <input type="text" id="booker-name" required placeholder="John Doe">
+        </div>
+
+        <div class="form-group">
+          <label for="booker-email">Email Address:</label>
+          <input type="email" id="booker-email" required placeholder="recruiter@company.com">
+        </div>
+
+        <div class="form-group">
+          <label for="booking-notes">Interview Notes / Topics:</label>
+          <textarea id="booking-notes" placeholder="Discussing engineering opportunities..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-booking-btn">
+          <i class="fa-regular fa-calendar-check"></i> Confirm Booking
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>

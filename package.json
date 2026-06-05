@@ -1,0 +1,32 @@
+{
+  "name": "scaler-assignment-ai-representative",
+  "version": "1.0.0",
+  "description": "RAG-grounded AI Representative (Voice and Chat Agent) with Cal.com integration.",
+  "main": "dist/server.js",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/server.js",
+    "dev": "ts-node src/server.ts",
+    "ingest": "ts-node src/rag/ingest.ts",
+    "generate-report": "ts-node scripts/generateEvalPdf.ts",
+    "test": "ts-node src/test/testSystem.ts"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "openai": "^4.52.0",
+    "pdf-parse": "^1.1.1",
+    "pdfkit": "^0.15.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
+    "@types/node": "^20.14.9",
+    "@types/pdf-parse": "^1.1.4",
+    "@types/pdfkit": "^0.13.4",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.2"
+  }
+}
