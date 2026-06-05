@@ -9,7 +9,7 @@ An end-to-end intelligent representative system designed to represent Shyam Venk
 You can evaluate the system immediately through any of the active channels below:
 
 *   📞 **Voice Dial-in**: Call **`+1 (239) 663-4873`** (Direct US line from any phone).
-*   💬 **Interactive Chat & Scheduler**: Access the live dark glassmorphic web dashboard at [https://renaissance-taken-vendor-rochester.trycloudflare.com](https://renaissance-taken-vendor-rochester.trycloudflare.com).
+*   💬 **Interactive Chat & Scheduler**: Access the live dark glassmorphic web dashboard at [https://scaler-assignment-shyam.onrender.com/).
 *   📊 **Real-time Telemetry Tracing**: Open the web dashboard, submit queries, and expand the *RAG Telemetry & Debug Console* at the bottom to watch latency values and exact matched document sources.
 
 *Note: The backend is actively running on a local development server on port 4000 and exposed via a secure Cloudflare Tunnel.*
