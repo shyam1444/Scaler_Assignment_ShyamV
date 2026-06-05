@@ -2,10 +2,10 @@
   "name": "scaler-assignment-ai-representative",
   "version": "1.0.0",
   "description": "RAG-grounded AI Representative (Voice and Chat Agent) with Cal.com integration.",
-  "main": "dist/server.js",
+  "main": "dist/src/server.js",
   "scripts": {
-    "build": "tsc",
-    "start": "node dist/server.js",
+    "build": "tsc && node -e \"const fs = require('fs'); fs.cpSync('src/public', 'dist/src/public', { recursive: true })\"",
+    "start": "node dist/src/server.js",
     "dev": "ts-node src/server.ts",
     "ingest": "ts-node src/rag/ingest.ts",
     "generate-report": "ts-node scripts/generateEvalPdf.ts",
