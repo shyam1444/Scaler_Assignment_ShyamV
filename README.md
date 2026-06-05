@@ -77,6 +77,29 @@ You can evaluate the system immediately through any of the active channels below
 
 ---
 
+## 💰 Cost Breakdown (Free Tier Configured)
+
+This system is configured to run entirely on the **free and trial tiers** of all providers, requiring **$0.00** out-of-pocket costs to host and test:
+
+*   **Vapi.ai**: Uses Vapi's **$10.00 free starting credit** (provides ~200 minutes of browser calling/voice routing).
+*   **Twilio**: Uses Twilio's **$15.00 free trial credit** (covers the US phone number rental and call routing).
+*   **OpenAI API / RAG**: Generates embeddings and LLM responses. If the API key runs out of credit, the system automatically falls back to the local bag-of-words similarity matching to prevent any downtime or cost.
+
+### Production Cost Estimates (If scaled to Paid Tiers)
+Should the system be migrated to commercial paid tiers, the operational cost metrics are extremely low:
+
+1.  **Voice Calls**: **~$0.08 / minute**
+    *   *Vapi Orchestration*: $0.05 / min
+    *   *Twilio Telephony (US)*: $0.013 / min
+    *   *ElevenLabs TTS (Flash)*: $0.015 / min
+    *   *Deepgram STT (Nova-2)*: $0.0043 / min
+    *   *OpenAI LLM (GPT-4o-mini)*: ~$0.001 / min (~1000 input/output tokens)
+2.  **Chat Sessions**: **~$0.002 / session**
+    *   *OpenAI LLM (GPT-4o-mini)*: ~$0.0004 per message response (~3,000 token context window).
+    *   *Embedding Ingestion*: $0.00003 (One-time cost to embed Shyam's resume + 23 repos).
+
+---
+
 ## ⚙️ Local Installation & Development
 
 To run this project on your local environment:
