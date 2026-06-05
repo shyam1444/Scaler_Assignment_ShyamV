@@ -27,7 +27,7 @@ if (apiKey) {
 const vectorStore = new VectorStore();
 
 // Serve frontend static assets from public folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(process.cwd(), 'src/public')));
 
 /**
  * Endpoint to fetch calendar availability slots
@@ -448,7 +448,7 @@ app.post('/api/voice-webhook', async (req, res) => {
 
 // Wildcard route to serve the SPA (chat client)
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'public/index.html'));
+  res.sendFile(path.join(process.cwd(), 'src/public/index.html'));
 });
 
 app.listen(PORT, () => {

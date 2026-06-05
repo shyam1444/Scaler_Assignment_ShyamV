@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import OpenAI from 'openai';
 
-const DB_PATH = path.join(__dirname, '../../data/vector_db.json');
+const DB_PATH = path.join(process.cwd(), 'data/vector_db.json');
 
 export interface Chunk {
   id: string;

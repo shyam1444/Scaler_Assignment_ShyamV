@@ -8,7 +8,7 @@ dotenv.config();
 const CAL_API_KEY = process.env.CAL_API_KEY;
 const CAL_EVENT_TYPE_ID = process.env.CAL_EVENT_TYPE_ID;
 const CAL_USERNAME = process.env.CAL_USERNAME || 'shyamv1444';
-const BOOKINGS_DB = path.join(__dirname, '../../data/bookings.json');
+const BOOKINGS_DB = path.join(process.cwd(), 'data/bookings.json');
 
 export interface BookingSlot {
   time: string; // ISO string or simple time like "2026-06-08T10:00:00.000Z"

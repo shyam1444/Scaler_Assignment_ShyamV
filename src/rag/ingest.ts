@@ -10,7 +10,7 @@ dotenv.config({ override: true });
 const RESUME_PATH = process.env.RESUME_PATH || 'C:\\Users\\ShyamVenkatraman\\Downloads\\Shyam___Venkatraman___Resume_______.pdf';
 const GITHUB_USERNAME = process.env.GITHUB_USERNAME || 'shyam1444';
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN;
-const OUT_DIR = path.join(__dirname, '../../data');
+const OUT_DIR = path.join(process.cwd(), 'data');
 const DB_PATH = path.join(OUT_DIR, 'vector_db.json');
 
 // Precompiled repository details as an offline fallback if GitHub API rate limits or fails
@@ -84,7 +84,7 @@ async function extractResumeText(pdfPath: string): Promise<string> {
   if (!fs.existsSync(pdfPath)) {
     console.warn(`[Warning] Resume PDF not found at ${pdfPath}. Attempting to look in workspace downloads...`);
     // Check if we can find it in workspace
-    const altPath = path.join(__dirname, '../../Shyam___Venkatraman___Resume_______.pdf');
+    const altPath = path.join(process.cwd(), 'Shyam___Venkatraman___Resume_______.pdf');
     if (fs.existsSync(altPath)) {
       pdfPath = altPath;
     } else {

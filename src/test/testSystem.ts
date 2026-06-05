@@ -13,7 +13,7 @@ async function runTests() {
   // Test 1: Local Scheduling Engine Initialization
   console.log("Test 1: Initializing Calendar Service Database...");
   try {
-    const bookingsPath = path.join(__dirname, '../../data/bookings.json');
+    const bookingsPath = path.join(process.cwd(), 'data/bookings.json');
     if (fs.existsSync(bookingsPath)) {
       console.log("✓ Bookings database exists.");
     } else {
@@ -48,7 +48,7 @@ async function runTests() {
     const testTime = "2026-06-08T10:00:00.000Z";
     
     // Clear previous booking of this test slot to ensure idempotency
-    const bookingsPath = path.join(__dirname, '../../data/bookings.json');
+    const bookingsPath = path.join(process.cwd(), 'data/bookings.json');
     if (fs.existsSync(bookingsPath)) {
       try {
         const data = fs.readFileSync(bookingsPath, 'utf8');
@@ -91,7 +91,7 @@ async function runTests() {
   // Test 4: Local Vector Database Search (Cosine Similarity check)
   console.log("\nTest 4: Loading local Vector Database...");
   try {
-    const dbPath = path.join(__dirname, '../../data/vector_db.json');
+    const dbPath = path.join(process.cwd(), 'data/vector_db.json');
     if (!fs.existsSync(dbPath)) {
       console.warn("⚠ Vector database (vector_db.json) not generated yet. Skipping search queries.");
       console.log("  Please run: npm run ingest");
